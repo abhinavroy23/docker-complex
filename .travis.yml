@@ -9,10 +9,10 @@ script:
   - docker run -e CI=true abhinavroy23/complex_client npm test --coverage
 
 after_success:
-  - docker build -t abhinavroy23/docker-multi-client -f ./client
-  - docker build -t abhinavroy23/docker-multi-nginx -f ./nginx
-  - docker build -t abhinavroy23/docker-multi-server -f ./server
-  - docker build -t abhinavroy23/docker-multi-worker -f ./worker
+  - docker build -t abhinavroy23/docker-multi-client ./client
+  - docker build -t abhinavroy23/docker-multi-nginx ./nginx
+  - docker build -t abhinavroy23/docker-multi-server ./server
+  - docker build -t abhinavroy23/docker-multi-worker ./worker
   # Login in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --pasword-stdin
 
